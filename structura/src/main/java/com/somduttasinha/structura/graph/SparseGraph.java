@@ -30,8 +30,17 @@ public class SparseGraph<V> implements Graph<V> {
         }
     }
 
+    public SparseGraph() {
+        this.adjacencyList = new java.util.HashMap<>();
+        this.vertices = new HashSet<>();
+    }
+
     @Override
     public void addEdge(Vertex<V> from, Vertex<V> to, int weight) {
+
+        this.vertices.add(from);
+        this.vertices.add(to);
+
         Set<Edge> edges = this.adjacencyList.getOrDefault(from, new HashSet<>());
 
         edges.add(new Edge(from, to, weight));
@@ -66,6 +75,11 @@ public class SparseGraph<V> implements Graph<V> {
         return this.adjacencyList.values().stream()
                 .map(edgeList -> edgeList.size())
                 .reduce(0, (a, b) -> a + b);
+    }
+
+    @Override
+    public Set<Vertex<V>> vertices() {
+        return this.vertices;
     }
 
     private class Edge {
