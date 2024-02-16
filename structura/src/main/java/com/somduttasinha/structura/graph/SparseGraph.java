@@ -7,9 +7,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * A Sparse Graph which uses an adjacency list representation of vertices and edges.
- */
+/** A Sparse Graph which uses an adjacency list representation of vertices and edges. */
 public class SparseGraph<V> implements Graph<V> {
 
     // we use a list of edges to allow for multiple uni-directional edges between
@@ -18,9 +16,7 @@ public class SparseGraph<V> implements Graph<V> {
 
     private Set<Vertex<V>> vertices;
 
-    /**
-     * SparseGraph constructor given the adjacency list.
-     */
+    /** SparseGraph constructor given the adjacency list. */
     public SparseGraph(Map<Vertex<V>, Set<SparseGraph<V>.Edge>> adjacencyList) {
         this.adjacencyList = adjacencyList;
 
