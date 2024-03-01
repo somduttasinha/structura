@@ -82,6 +82,19 @@ public class SparseGraph<V> implements Graph<V> {
         return this.vertices;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Vertex<V> vertex : this.vertices) {
+            sb.append(vertex.toString());
+            sb.append(" -> ");
+            sb.append(this.adjacencyList.get(vertex));
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
+
     private class Edge {
 
         Vertex<V> from;
@@ -93,5 +106,12 @@ public class SparseGraph<V> implements Graph<V> {
             this.to = to;
             this.weight = weight;
         }
+
+        @Override
+        public String toString() {
+            return "Edge [from=" + from + ", to=" + to + ", weight=" + weight + "]";
+        }
+
+
     }
 }
